@@ -19,22 +19,22 @@ const ShopCard: React.FC<ShopCardProps> = ({ shop, onClick }) => {
   return (
     <div
       onClick={onClick}
-      className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-lg hover:border-teal-200 transition-all duration-300 cursor-pointer group"
+      className="bg-white rounded-2xl shadow-sm border border-gray-200 hover:shadow-xl hover:border-teal-200 transition-all duration-500 cursor-pointer group transform hover:scale-105 hover:-translate-y-2 animate-fadeInUp"
     >
       <div className="relative">
         <img
           src={shop.image}
           alt={shop.name}
-          className="w-full h-48 object-cover rounded-t-2xl group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-48 object-cover rounded-t-2xl group-hover:scale-110 transition-transform duration-500"
         />
-        <div className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 shadow-lg">
+        <div className="absolute top-4 right-4 bg-white rounded-full px-3 py-1 shadow-lg animate-fadeInScale glass">
           <div className="flex items-center space-x-1">
-            <div className={`w-2 h-2 rounded-full ${shop.isOpen ? 'bg-green-500' : 'bg-red-500'}`} />
+            <div className={`w-2 h-2 rounded-full ${shop.isOpen ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`} />
             <span className="text-sm font-medium">{shop.isOpen ? 'Open' : 'Closed'}</span>
           </div>
         </div>
         {shop.distance && (
-          <div className="absolute top-4 left-4 bg-white rounded-full px-3 py-1 shadow-lg">
+          <div className="absolute top-4 left-4 bg-white rounded-full px-3 py-1 shadow-lg animate-slideInRight glass">
             <div className="flex items-center space-x-1">
               <Navigation size={12} />
               <span className="text-sm font-medium">{shop.distance} mi</span>
@@ -43,13 +43,13 @@ const ShopCard: React.FC<ShopCardProps> = ({ shop, onClick }) => {
         )}
       </div>
 
-      <div className="p-6">
+      <div className="p-6 group-hover:bg-gradient-to-br group-hover:from-teal-50 group-hover:to-blue-50 transition-all duration-300">
         <div className="flex justify-between items-start mb-3">
-          <h3 className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors">
+          <h3 className="text-xl font-bold text-gray-900 group-hover:text-teal-600 transition-colors duration-300">
             {shop.name}
           </h3>
           <div className="flex items-center space-x-1">
-            <Star className="text-yellow-400 fill-current" size={16} />
+            <Star className="text-yellow-400 fill-current group-hover:animate-pulse" size={16} />
             <span className="text-sm font-medium text-gray-700">{shop.rating}</span>
             <span className="text-sm text-gray-500">({shop.reviewCount})</span>
           </div>
@@ -83,13 +83,13 @@ const ShopCard: React.FC<ShopCardProps> = ({ shop, onClick }) => {
           {shop.services.slice(0, 3).map(service => (
             <span
               key={service.id}
-              className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+              className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-teal-100 hover:text-teal-700 transition-colors duration-300"
             >
               {service.name}
             </span>
           ))}
           {shop.services.length > 3 && (
-            <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full">
+            <span className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-teal-100 hover:text-teal-700 transition-colors duration-300">
               +{shop.services.length - 3} more
             </span>
           )}

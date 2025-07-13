@@ -46,26 +46,26 @@ const BarberDashboard: React.FC = () => {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">Barber Dashboard</h1>
+        <div className="mb-8 animate-fadeInUp">
+          <h1 className="text-3xl font-bold gradient-text mb-2">Barber Dashboard</h1>
           <p className="text-gray-600">Manage your queue and services at {shop.name}</p>
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div className="bg-white rounded-xl shadow-sm p-6 animate-fadeInScale hover:shadow-lg hover:scale-105 transition-all duration-300" style={{ animationDelay: '0.1s' }}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Queue Length</p>
                 <p className="text-2xl font-bold text-gray-900">{activeQueue.length}</p>
               </div>
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center animate-pulse-slow">
                 <Users className="text-blue-600" size={24} />
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div className="bg-white rounded-xl shadow-sm p-6 animate-fadeInScale hover:shadow-lg hover:scale-105 transition-all duration-300" style={{ animationDelay: '0.2s' }}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Avg Wait Time</p>
@@ -76,25 +76,25 @@ const BarberDashboard: React.FC = () => {
                   } min
                 </p>
               </div>
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center animate-pulse-slow">
                 <Clock className="text-orange-600" size={24} />
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div className="bg-white rounded-xl shadow-sm p-6 animate-fadeInScale hover:shadow-lg hover:scale-105 transition-all duration-300" style={{ animationDelay: '0.3s' }}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Today's Earnings</p>
                 <p className="text-2xl font-bold text-gray-900">${totalEarnings}</p>
               </div>
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center animate-pulse-slow">
                 <DollarSign className="text-green-600" size={24} />
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-xl shadow-sm p-6">
+          <div className="bg-white rounded-xl shadow-sm p-6 animate-fadeInScale hover:shadow-lg hover:scale-105 transition-all duration-300" style={{ animationDelay: '0.4s' }}>
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-gray-600">Completed Today</p>
@@ -102,7 +102,7 @@ const BarberDashboard: React.FC = () => {
                   {queueEntries.filter(entry => entry.status === 'completed').length}
                 </p>
               </div>
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center animate-pulse-slow">
                 <Calendar className="text-purple-600" size={24} />
               </div>
             </div>
@@ -110,7 +110,7 @@ const BarberDashboard: React.FC = () => {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="bg-white rounded-xl shadow-sm mb-8">
+        <div className="bg-white rounded-xl shadow-lg mb-8 animate-fadeInUp hover:shadow-xl transition-all duration-300">
           <div className="border-b border-gray-200">
             <nav className="flex space-x-8 px-6">
               {[
@@ -123,7 +123,7 @@ const BarberDashboard: React.FC = () => {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as any)}
-                    className={`flex items-center space-x-2 py-4 border-b-2 font-medium text-sm transition-colors ${
+                    className={`flex items-center space-x-2 py-4 border-b-2 font-medium text-sm transition-all duration-300 hover:scale-105 ${
                       activeTab === tab.id
                         ? 'border-teal-500 text-teal-600'
                         : 'border-transparent text-gray-500 hover:text-gray-700'
@@ -145,7 +145,7 @@ const BarberDashboard: React.FC = () => {
                   <h2 className="text-lg font-semibold text-gray-900">Current Queue</h2>
                   <button
                     onClick={() => setShowQRCode(!showQRCode)}
-                    className="flex items-center space-x-2 bg-teal-600 text-white px-4 py-2 rounded-lg hover:bg-teal-700 transition-colors"
+                    className="flex items-center space-x-2 gradient-bg text-white px-4 py-2 rounded-lg hover:shadow-lg transition-all duration-300 transform hover:scale-105"
                   >
                     <QrCode size={18} />
                     <span>Show QR Code</span>
@@ -153,10 +153,10 @@ const BarberDashboard: React.FC = () => {
                 </div>
 
                 {showQRCode && (
-                  <div className="bg-gray-50 rounded-xl p-6 mb-6">
+                  <div className="bg-gray-50 rounded-xl p-6 mb-6 animate-fadeInScale">
                     <div className="text-center">
                       <h3 className="font-semibold text-gray-900 mb-4">Walk-in QR Code</h3>
-                      <div className="w-48 h-48 bg-white border-2 border-gray-300 rounded-lg mx-auto flex items-center justify-center mb-4">
+                      <div className="w-48 h-48 bg-white border-2 border-gray-300 rounded-lg mx-auto flex items-center justify-center mb-4 animate-pulse-slow">
                         <QrCode size={120} className="text-gray-400" />
                       </div>
                       <p className="text-sm text-gray-600 mb-2">
@@ -169,7 +169,7 @@ const BarberDashboard: React.FC = () => {
 
                 <div className="space-y-4">
                   {activeQueue.length === 0 ? (
-                    <div className="text-center py-12">
+                    <div className="text-center py-12 animate-fadeInUp">
                       <Users className="text-gray-400 mx-auto mb-4" size={48} />
                       <h3 className="text-lg font-medium text-gray-900 mb-2">No customers in queue</h3>
                       <p className="text-gray-600">Queue entries will appear here as customers join</p>
@@ -178,15 +178,16 @@ const BarberDashboard: React.FC = () => {
                     activeQueue.map((entry, index) => (
                       <div
                         key={entry.id}
-                        className={`bg-gray-50 rounded-xl p-4 ${
+                        className={`bg-gray-50 rounded-xl p-4 animate-fadeInUp hover:shadow-md transition-all duration-300 ${
                           index === 0 ? 'ring-2 ring-teal-500 bg-teal-50' : ''
                         }`}
+                        style={{ animationDelay: `${index * 0.1}s` }}
                       >
                         <div className="flex items-center justify-between">
                           <div className="flex items-center space-x-4">
-                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold ${
+                            <div className={`w-8 h-8 rounded-full flex items-center justify-center text-white font-bold transition-all duration-300 ${
                               index === 0 ? 'bg-teal-600' : 'bg-gray-400'
-                            }`}>
+                            } ${index === 0 ? 'animate-pulse' : ''}`}>
                               {entry.position}
                             </div>
                             <div>
@@ -206,14 +207,14 @@ const BarberDashboard: React.FC = () => {
                             {index === 0 && (
                               <button
                                 onClick={() => completeService(entry.id)}
-                                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors"
+                                className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
                               >
                                 Complete
                               </button>
                             )}
                             <button
                               onClick={() => removeFromQueue(entry.id)}
-                              className="text-red-600 hover:bg-red-50 p-2 rounded-lg transition-colors"
+                              className="text-red-600 hover:bg-red-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-110"
                             >
                               <UserX size={18} />
                             </button>
